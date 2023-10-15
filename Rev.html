@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        .background {
+            background-image: url('bg2.jpg');
+            height: 100%;
+            width: 100%;
+        }
+
+        .options {
+            font-weight: bolder;
+            border-radius: 10px;
+            border: 1.5px solid #cccccc;
+            padding: 9px;
+            width: 180px;
+            height: 6px;
+        }
+
+        .button {
+            background: #EC7063;
+            border-radius: 6px;
+            font-size: 17px;
+            width: 85px;
+            cursor: pointer;
+        }
+
+        .selectedOption {
+            font-weight: bold;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+
+<body align="center">
+    <div class="background">
+        <form action="Payment.html" target="_blank">
+            <font color="#E74C3C">
+            <br>
+            <br>
+            <br>
+                <b>ROLL NO:</b>
+                <input class="options" type="text" name="ROLLNO" required><br><br>
+                <b>DEPARTMENT:</b>
+                <input class="options" type="text" name="DEPT" required><br><br>
+                <b>YEAR OF STUDY:</b>
+                <input class="options" type="text" name="YOF" required><br><br>
+                <b>SEMESTER:</b>
+                <input class="options" type="text" name="SEM" required><br><br>
+                <b>MOBILE:</b>
+                <input class="options" type="text" name="MOBILE" required><br><br>
+                <div class="field" align="center">
+                    <label for="numSubjects"><b><h3>Number of Subjects:</h3></b></label>
+                    <input id="numSubjects" type="number" min="1" placeholder="Enter Number of Subjects" required>
+                </div>
+
+                <!-- Input fields for subject names and display for subject prices -->
+                <div id="subjectFields">
+                    <!-- Fields will be added here dynamically based on the number of subjects -->
+                </div>
+
+                <!-- Total amount display -->
+                <div class="field">
+                    <label for="totalAmount"><b><h3>Total Amount:</h3></b></label>
+                    <input id="totalAmount" type="text" readonly>
+                </div><br>
+                <!-- Add a hidden field to store the total amount -->
+                <input type="hidden" id="totalAmount" name="totalAmount">
+                <input type="reset" class="button" value="Cancel">
+                <input type="submit" class="button" value="Submit" id="1">
+        </form>
+    </div>
+    <script>
+        // Function to dynamically add subject fields and calculate the total amount
+        function updateTotalAmount() {
+            var numSubjectsInput = document.getElementById("numSubjects");
+            var subjectFields = document.getElementById("subjectFields");
+            var totalAmountInput = document.getElementById("totalAmount");
+
+            // Clear existing subject fields
+            subjectFields.innerHTML = "";
+
+            // Get the number of subjects
+            var numSubjects = parseInt(numSubjectsInput.value, 10);
+
+            // Validate numSubjects
+            if (isNaN(numSubjects) || numSubjects < 1) {
+                totalAmountInput.value = "";
+                return;
+            }
+
+            // Initialize total amount
+            var totalAmount = 0;
+
+            // Create input fields for each subject
+            for (var i = 1; i <= numSubjects; i++) {
+                var subjectNameLabel = document.createElement("label");
+                subjectNameLabel.textContent = "Subject " + i + " Name:";
+                
+                var subjectName = document.createElement("input");
+                subjectName.type = "text";
+                subjectName.className = "options";
+                subjectName.name = "subjectName";
+                subjectName.placeholder = "Enter Subject " + i + " Name";
+
+                var br = document.createElement("br");
+
+                subjectFields.appendChild(subjectNameLabel);
+                subjectFields.appendChild(subjectName);
+                subjectFields.appendChild(br);
+
+                // Calculate and display subject price
+                totalAmount += 800;
+
+                // Div to display selected option
+                var selectedOptionDiv = document.createElement("div");
+                selectedOptionDiv.className = "selectedOption";
+                selectedOptionDiv.textContent = "Price for Subject " + i + ": 800";
+                subjectFields.appendChild(selectedOptionDiv);
+            }
+
+            // Display the total amount
+            totalAmountInput.value = totalAmount.toFixed(2);
+        }
+
+        // Add an event listener to update subject fields and total amount when the number of subjects changes
+        var numSubjectsInput = document.getElementById("numSubjects");
+        numSubjectsInput.addEventListener("input", updateTotalAmount);
+
+        // Initial call to set up the subject fields and total amount
+        updateTotalAmount();
+        totalAmountInput.value = totalAmount.toFixed(2);
+        document.getElementById("totalAmountHidden").value = totalAmount.toFixed(2);
+        var totalAmount = 800 * numSubjects; // Assuming each subject costs 800
+        localStorage.setItem("totalAmount", totalAmount);
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./styleneon.css">
+
+</head>
+  <button id="1" style="--clr:#39FF14" value=""><span>AU Results</span><i></i></button>
+  <script>
+    // Add a click event listener to the button
+    document.getElementById("1").addEventListener("click", function() {
+      // Define the URL you want to redirect to
+      var redirectTo = "https://www.ums.campx.in/aupulse/aupulse/results/";
+
+      // Redirect the user to the specified URL
+      window.location.href = redirectTo;
+    });
+  </script>
+  <button id="2" style="--clr:#FF44CC"><span>Re-Evaluation</span><i></i></button>
+  <script>
+  document.getElementById("2").addEventListener("click", function () {
+      // Redirect to the specified URL for Re-Evaluation
+      window.location.href = "Rev.html";
+  });
+</script>
+  <button id="3" style="--clr:#0FF0FC"><span>Re-Correction</span><i></i></button>
+  <script>
+  // Add a click event listener to button 2
+  document.getElementById("3").addEventListener("click", function() {
+    // Define the URL you want to redirect to after 3 seconds
+    var redirectTo = "Rec.html";
+    setTimeout(function() {
+      window.location.href = redirectTo;
+    }, 1000);
+  });
+</script>  
+  <button id="4" style="--clr:#FF44CC"><span>Supplementary</span><i></i></button>
+  <script>
+  // Add a click event listener to button 2
+  document.getElementById("4").addEventListener("click", function() {
+    var redirectTo = "Sup.html";
+    setTimeout(function() {
+      window.location.href = redirectTo;
+    }, 1000);
+  });
+</script>  
+</body>
+</html>

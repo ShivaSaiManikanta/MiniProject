@@ -1,0 +1,65 @@
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
+    background-image: url('paytm.png');
+}
+
+
+.card {
+    padding: 50px;
+    margin: 50px auto;
+    max-width: 500px;
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.field input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 50%;
+    font-size: 16px;
+    color: #2196F3; /* Add this line to set the text color to light blue */
+}
+
+.qr-code-container {
+    margin: 30px 0;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 50%;
+    font-size: 16px;
+}
+
+.button {
+    background-color: #2196F3;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #0D47A1;
+}

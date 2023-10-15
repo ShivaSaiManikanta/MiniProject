@@ -1,0 +1,47 @@
+<!-- SECOND HTML FORM -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="PaymentStyle.css">
+</head>
+<body>
+    <article class="card">
+        <div class="container">
+            <div class="card-title">
+               <img src="paytm1.png" width="350" height="110">
+            </div>
+            <div class="card-body">
+                <form action="PaymentServlet" method="post">
+                    <div class="qr-code-container">
+                        <img src="Payment QR2.png" width="200" height="200">
+                    </div>
+                    <div class="field" align="center">
+                        <label for="paytm_number"><b><h3>Enter Roll Number</h3></b></label>
+                        <input id="paytm_number" type="text" placeholder="Roll Number" align="center" name="rno" required>
+                        <p id="mobileError" class="error"></p>
+                    </div>
+                    <div class="field" align="center">
+                        <label for="paytm_number"><b><h3>Enter Subjects</h3></b></label>
+                        <input id="paytm_number" type="text" placeholder="Subjects" align="center" name="subjects" required>
+                        <p id="mobileError" class="error"></p>
+                    </div>
+                    <div class="field" align="center">
+                        <label for="paytm_number"><b><h3>Enter Query</h3></b></label>
+                        <input id="paytm_number" type="text" placeholder="Query Type" align="center" name="query" required>
+                        <p id="mobileError" class="error"></p>
+                    </div>
+                    <div class="field" align="center">
+                        <label for="utr"><b><h3>Enter UTR ID</h3></b></label>
+                        <input id="utr" type="text" placeholder="UTR ID" align="center" name="utr" required>
+                        <p id="utrError" class="error"></p>
+                    </div>
+                    <div class="flex justify-center">
+                        <button class="button button-primary" id="submitButton">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </article>
+</body>
+</html>
